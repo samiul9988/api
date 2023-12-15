@@ -28,10 +28,10 @@ class userController extends Controller
         }
 
         $user = User::create([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'name'      => $request->name,
+            'phone'     => $request->phone,
+            'email'     => $request->email,
+            'password'  => bcrypt($request->password)
 
         ]);
 
@@ -98,10 +98,10 @@ class userController extends Controller
 
         $user = User::findOrFail($id);
 
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->email = $request->email;
-        $result = $user->save();
+        $user->name     = $request->name;
+        $user->phone    = $request->phone;
+        $user->email    = $request->email;
+        $result         = $user->save();
 
         $result = array(['status' => true, 'message' => 'Update Successfully', 'data' => $user]);
 
