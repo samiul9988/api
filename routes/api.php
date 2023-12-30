@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\API\userController;
 
 /*
@@ -32,3 +33,11 @@ Route::middleware('auth:api')->group(function(){
     Route::get('logout', [userController::class, 'logout']);
 
 });
+
+/**Product Route*/
+Route::get('products', [ProductController::class, 'index']);
+Route::get('products/{id}', [ProductController::class, 'show']);
+Route::post('products', [ProductController::class, 'store']);
+Route::put('productUpdate/{id}', [ProductController::class, 'update']);
+Route::delete('product/{id}', [ProductController::class, 'destroy']);
+
